@@ -37,7 +37,7 @@ static inline ICACHE_RAM_ATTR uint16_t transfer_spi_MC3208(byte ch) {
 }
 /***********************************************************************************************/
 void ICACHE_RAM_ATTR sample_isr(void) {
-  uint16_t adc_sample = transfer_spi_MC3208(desierd_ch);
+  uint16_t adc_sample = transfer_spi_MC3208(next_ch);
 }
 /***********************************************************************************************/
 void setup(void) {
