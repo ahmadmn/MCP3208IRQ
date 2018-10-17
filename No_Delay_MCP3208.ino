@@ -27,12 +27,12 @@ static inline ICACHE_RAM_ATTR uint16_t transfer_spi_MC3208(byte ch) {
     };
   } out;
   uint32_t spi_val = SPI1W0;
+  SPI1W0 = Reverse3Bit[ch];
+  SPI1CMD |= SPIBUSY;
   out.val = (spi_val >> 3) & 0xFFFF;
   uint8_t tmp = ReverseByte[out.msb];
   out.msb = ReverseByte[out.lsb] & 0x0F;
   out.lsb = tmp;
-  SPI1W0 = Reverse3Bit[ch];
-  SPI1CMD |= SPIBUSY;
   return out.val;
 }
 /***********************************************************************************************/
