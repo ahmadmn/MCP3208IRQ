@@ -37,7 +37,7 @@ static inline ICACHE_RAM_ATTR uint16_t transfer_spi_MC3208(byte ch) {
 }
 /***********************************************************************************************/
 void ICACHE_RAM_ATTR sample_isr(void) {
-      // use data of last channel sample and fire next channel sample
+      // use result of last channel sample and fire next channel sample
   uint16_t adc_sample = transfer_spi_MC3208(next_ch);
 }
 /***********************************************************************************************/
